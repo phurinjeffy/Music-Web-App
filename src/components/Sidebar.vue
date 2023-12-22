@@ -1,9 +1,17 @@
 <template>
-  <div class="flex flex-col h-screen w-20 bg-zinc-950 text-white fixed py-20">
+  <div class="flex flex-col h-screen w-20 bg-zinc-950 text-white fixed py-20 items-center text-center border-[0.5px] border-gray-500 border-opacity-50">
     <ul>
-      <li v-for="(menuItem, index) in menuItems" :key="index">
-        <img :src="menuItem.image" alt="Menu Icon" class="w-8 h-8 my-2" />
-        {{ menuItem.label }}
+      <li class="text-xs mb-6">
+        <img src="../assets/home.svg" :alt="menuItems[0].label" class="w-5 h-5 m-2" />
+        {{ menuItems[0].label }}
+      </li>
+      <li class="text-xs mb-6">
+        <img src="../assets/explore.svg" :alt="menuItems[1].label" class="w-5 h-5 m-2" />
+        {{ menuItems[1].label }}
+      </li>
+      <li class="text-xs mb-6">
+        <img src="../assets/library.svg" :alt="menuItems[2].label" class="w-5 h-5 m-2" />
+        {{ menuItems[2].label }}
       </li>
     </ul>
   </div>
@@ -17,6 +25,4 @@ const menuItems = [
 ];
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
