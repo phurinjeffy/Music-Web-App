@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="mr-8">
+    <div class="mr-6">
       <a>
         <img src="../assets/profile.svg" class="w-8" />
       </a>
