@@ -5,11 +5,8 @@
       <button>
         <img src="../assets/prev.svg" class="w-4" />
       </button>
-      <button v-if="!isPlaying">
-        <img src="../assets/pause.svg" class="w-6" />
-      </button>
-      <button v-else>
-        <img src="../assets/play.svg" class="w-6" />
+      <button @click="togglePlay">
+        <img :src="isPlaying ? 'src/assets/pause.svg' : 'src/assets/play.svg'" class="w-6" />
       </button>
       <button>
         <img src="../assets/next.svg" class="w-4" />
@@ -45,34 +42,49 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const isPlaying = false;
-let volume = 100;
-
-const toggleVolume = () => {
-  volume = volume === 0 ? 50 : 0;
-};
-
-const updateVolume = (event: any) => {
-  volume = parseInt(event.target.value);
-};
-
-const music = [
-  {
-    albumCover: 'src/assets/sample.jpeg',
-    songName: 'Song Name 1',
-    albumName: 'Album Name 1',
-    artistName: 'Artist Name 1',
+<script lang="ts">
+export default {
+  data() {
+    return {
+      isPlaying: false,
+      volume: 100,
+      music: [
+        {
+          albumCover: 'src/assets/sample.jpeg',
+          songName: 'Song Name 1',
+          albumName: 'Album Name 1',
+          artistName: 'Artist Name 1',
+        },
+        {
+          albumCover: 'src/assets/sample.jpeg',
+          songName: 'Song Name 2',
+          albumName: 'Album Name 2',
+          artistName: 'Artist Name 2',
+        },
+      ],
+      currentTrack: null as null | {
+        albumCover: string;
+        songName: string;
+        albumName: string;
+        artistName: string;
+      },
+    };
   },
-  {
-    albumCover: 'src/assets/sample.jpeg',
-    songName: 'Song Name 2',
-    albumName: 'Album Name 2',
-    artistName: 'Artist Name 2',
+  methods: {
+    togglePlay() {
+      this.isPlaying = !this.isPlaying;
+    },
+    toggleVolume() {
+      this.volume = this.volume === 0 ? 50 : 0;
+    },
+    updateVolume(event: any) {
+      this.volume = parseInt(event.target.value);
+    },
   },
-];
-
-const currentTrack = music[0];
+  created() {
+    this.currentTrack = this.music[0];
+  },
+};
 </script>
 
 <style scoped>
