@@ -19,24 +19,19 @@
       </div>
 
       <div class="flex flex-col justify-center flex-grow">
-        <p class="text-sm font-semibold">{{ currentTrack.songName }}</p>
-        <p class="text-xs text-gray-500">{{ currentTrack.albumName }} • {{ currentTrack.artistName }}</p>
+        <a href="" class="text-sm font-semibold w-fit hover:underline">{{ currentTrack.songName }}</a>
+        <p class="text-xs text-gray-500">
+          <span><a href="" class="hover:underline">{{ currentTrack.albumName }}</a></span> •
+          <span><a href="" class="hover:underline">{{ currentTrack.artistName }}</a></span>
+        </p>
       </div>
     </div>
 
     <div class="mr-6 flex items-center">
-      <input
-        type="range"
-        class="mr-4 accent-white w-24 h-1 cursor-pointer"
-        min="0" max="100"
-        v-model="volume"
-        @input="updateVolume"
-      />
+      <input type="range" class="mr-4 accent-white w-24 h-1 cursor-pointer" min="0" max="100" v-model="currentVolume"
+        @input="updateVolume" />
       <button @click="toggleVolume">
-        <img
-          src="../assets/volume.svg"
-          class="w-6"
-        />
+        <img src="../assets/volume.svg" class="w-6" />
       </button>
     </div>
   </div>
@@ -47,6 +42,7 @@ export default {
   data() {
     return {
       isPlaying: false,
+      isMute: false,
       volume: 100,
       music: [
         {
@@ -70,12 +66,22 @@ export default {
       },
     };
   },
+  computed: {
+    currentVolume: {
+      get() {
+        return this.isMute ? 0 : this.volume;
+      },
+      set(value: number) {
+        this.volume = value;
+      },
+    },
+  },
   methods: {
     togglePlay() {
       this.isPlaying = !this.isPlaying;
     },
     toggleVolume() {
-      this.volume = this.volume === 0 ? 50 : 0;
+      this.isMute = !this.isMute;
     },
     updateVolume(event: any) {
       this.volume = parseInt(event.target.value);
@@ -87,6 +93,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
