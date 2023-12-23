@@ -13,14 +13,14 @@
       </button>
     </div>
 
-    <div v-if="currentTrack" class="flex w-fit min-w-[420px] gap-5">
-      <div class="w-12 h-12 rounded-md overflow-hidden">
+    <div v-if="currentTrack" class="flex w-fit min-w-[420px] gap-4">
+      <div class="w-12 h-12 rounded-sm overflow-hidden">
         <img :src="currentTrack.albumCover" :alt="currentTrack.albumName" class="w-full h-full object-cover" />
       </div>
 
       <div class="flex flex-col justify-center flex-grow">
-        <a href="" class="text-sm font-semibold w-fit hover:underline">{{ currentTrack.songName }}</a>
-        <p class="text-sm text-zinc-400">
+        <a href="" class="text-base font-normal w-fit hover:underline">{{ currentTrack.songName }}</a>
+        <p class="text-base font-light text-zinc-400">
           <span><a href="" class="hover:underline">{{ currentTrack.albumName }}</a></span> •
           <span><a href="" class="hover:underline">{{ currentTrack.artistName }}</a></span>
         </p>
