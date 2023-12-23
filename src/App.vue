@@ -14,6 +14,6 @@ import MusicPlayer from './components/MusicPlayer.vue';
 
 <style scoped>
 main {
-  @apply pt-16 pl-20 w-screen h-screen bg-zinc-900 text-white
+  @apply pt-16 pl-20 w-screen h-screen bg-zinc-950 text-white
 }
 </style>
