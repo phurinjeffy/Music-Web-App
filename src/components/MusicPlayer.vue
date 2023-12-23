@@ -13,8 +13,8 @@
       </button>
     </div>
 
-    <div v-if="currentTrack" class="flex w-fit min-w-[420px] gap-4">
-      <div class="w-12 h-12 rounded-sm overflow-hidden">
+    <div v-if="currentTrack" class="flex w-fit min-w-[420px] gap-4 items-center">
+      <div class="w-11 h-11 rounded-sm overflow-hidden">
         <img :src="currentTrack.albumCover" :alt="currentTrack.albumName" class="w-full h-full object-cover" />
       </div>
 
@@ -47,15 +47,15 @@ export default {
       music: [
         {
           albumCover: 'src/assets/sample.jpeg',
-          songName: 'Song Name 1',
-          albumName: 'Album Name 1',
-          artistName: 'Artist Name 1',
+          songName: 'ฤดู',
+          albumName: 'Cycle of Love',
+          artistName: 'Dept',
         },
         {
           albumCover: 'src/assets/sample.jpeg',
-          songName: 'Song Name 2',
-          albumName: 'Album Name 2',
-          artistName: 'Artist Name 2',
+          songName: 'คงต้องบอกลาแล้ว',
+          albumName: 'Farewell',
+          artistName: 'Dept',
         },
       ],
       currentTrack: null as null | {
