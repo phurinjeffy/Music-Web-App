@@ -31,7 +31,7 @@
       <input type="range" class="mr-4 accent-white w-24 h-1 cursor-pointer" min="0" max="100" v-model="currentVolume"
         @input="updateVolume" />
       <button @click="toggleVolume">
-        <img src="../assets/volume.svg" class="w-6" />
+        <img :src="isMute ? 'src/assets/mute.svg' : 'src/assets/volume.svg'" class="w-6" />
       </button>
     </div>
   </div>
