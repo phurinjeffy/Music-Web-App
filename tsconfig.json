@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
+    "allowJs": true,
 
     /* Linting */
     "strict": true,
@@ -24,6 +25,6 @@
       "vuex": ["node_modules/vuex/types/index.d.ts"]
     },
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/mixins/globalMixins.ts", "src/mixins/musicsMixins.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

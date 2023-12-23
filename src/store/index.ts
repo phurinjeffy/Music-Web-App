@@ -1,6 +1,6 @@
 import { createStore } from 'vuex';
 
-interface Music {
+export interface Music {
   index: number;
   name: string;
   artist: string;
@@ -9,7 +9,7 @@ interface Music {
   cover: any;
 }
 
-interface State {
+export interface State {
   musics: Music[];
   bookMarksMusicsIndex: number[];
   activeMusic: { index: number; music: Music };

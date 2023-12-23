@@ -13,7 +13,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import globalMixins from "../mixins/globalMixins";
 import musicsMixins from "../mixins/musicsMixins";
 export default {
