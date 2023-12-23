@@ -20,7 +20,7 @@
 
       <div class="flex flex-col justify-center flex-grow">
         <a href="" class="text-sm font-semibold w-fit hover:underline">{{ currentTrack.songName }}</a>
-        <p class="text-xs text-gray-500">
+        <p class="text-sm text-zinc-400">
           <span><a href="" class="hover:underline">{{ currentTrack.albumName }}</a></span> •
           <span><a href="" class="hover:underline">{{ currentTrack.artistName }}</a></span>
         </p>
