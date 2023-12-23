@@ -71,7 +71,6 @@ const updateVolume = (event: any) => {
 onMounted(() => {
   const initialMusic = store.state.musics[0];
   store.commit('setActiveMusic', initialMusic);
-  console.log(currentTrack)
 });
 </script>
 

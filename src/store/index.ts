@@ -20,8 +20,8 @@ interface State {
 export default createStore({
   state: (): State => ({
     musics: [
-      { index: 0, name: 'I Always Wanna Die (Sometimes)', artist: 'The 1975', album: 'A Brief Inquiry into Online Relationships', file: 'src/assets/musics/always-wanna-die.mp3', cover: 'src/assets/musics/sample.jpeg' },
-      { index: 1, name: 'TEST', artist: 'TEST', album: 'TEST', file: 'src/assets/musics/always-wanna-die.mp3', cover: 'src/assets/musics/sample.jpeg' },
+      { index: 0, name: 'I Always Wanna Die (Sometimes)', artist: 'The 1975', album: 'A Brief Inquiry into Online Relationships', file: 'src/assets/musics/always-wanna-die.mp3', cover: 'src/assets/musics/1975.jpeg' },
+      { index: 1, name: 'ฤดู', artist: 'Dept', album: 'Cycle of Love', file: 'src/assets/musics/always-wanna-die.mp3', cover: 'src/assets/musics/sample.jpeg' },
     ],
     bookMarksMusicsIndex: JSON.parse(localStorage.getItem('bookMarks') || '[]'),
     activeMusic: { index: -1, music: {} as Music },
@@ -31,6 +31,20 @@ export default createStore({
   mutations: {
     setActiveMusic(state: State, music: Music): void {
       state.activeMusic = { index: music.index, music };
+    },
+    updatePlayStatus(state: State, status: boolean): void {
+      state.isPlay = status;
+    },
+    addBookMarkMusic(state: State, index: number): void {
+      state.bookMarksMusicsIndex.push(index);
+      localStorage.setItem('bookMarks', JSON.stringify(state.bookMarksMusicsIndex));
+    },
+    removeBookMarkMusic(state: State, index: number): void {
+      state.bookMarksMusicsIndex = state.bookMarksMusicsIndex.filter(item => item !== index);
+      localStorage.setItem('bookMarks', JSON.stringify(state.bookMarksMusicsIndex));
+    },
+    updatePlayList(state: State, playList: string): void {
+      state.activePlayList = playList;
     },
   },
 });
