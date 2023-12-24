@@ -58,6 +58,7 @@ const currentTrack = computed(() => store.state.activeMusic.music);
 
 const togglePlay = () => {
   isPlaying.value = !isPlaying.value;
+  isPlaying.value ? play() : pause();
 };
 
 const toggleVolume = () => {
@@ -72,6 +73,22 @@ onMounted(() => {
   const initialMusic = store.state.musics[0];
   store.commit('setActiveMusic', initialMusic);
 });
+
+const player = new Audio();
+
+const play = () => {
+  if (typeof currentTrack.value.file !== 'undefined') {
+    player.src = currentTrack.value.file;
+    player.play();
+    player.addEventListener('ended', () => {
+      isPlaying.value = false;
+    });
+  }
+};
+
+const pause = () => {
+  player.pause();
+};
 </script>
 
 <style scoped></style>
