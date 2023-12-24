@@ -34,6 +34,8 @@
         <img :src="isMute ? 'src/assets/mute.svg' : 'src/assets/volume.svg'" class="w-6" />
       </button>
     </div>
+
+    <audio ref="audioRef"></audio>
   </div>
 </template>
 
@@ -51,6 +53,7 @@ const currentVolume = computed({
   get: () => (isMute.value ? 0 : volume.value),
   set: (value: number) => {
     volume.value = value;
+    updatePlayerVolume(value);
   },
 });
 
@@ -63,32 +66,43 @@ const togglePlay = () => {
 
 const toggleVolume = () => {
   isMute.value = !isMute.value;
+  updatePlayerVolume(currentVolume.value);
 };
 
 const updateVolume = (event: any) => {
   volume.value = parseInt(event.target.value);
 };
 
+const updatePlayerVolume = (value: number) => {
+  if (audioRef.value) {
+    audioRef.value.volume = value / 100;
+  }
+};
+
 onMounted(() => {
   const initialMusic = store.state.musics[0];
   store.commit('setActiveMusic', initialMusic);
+  if (audioRef.value) {
+    audioRef.value.src = initialMusic.file;
+  }
 });
 
-const player = new Audio();
+const audioRef = ref<HTMLAudioElement | null>(null);
 
 const play = () => {
-  if (typeof currentTrack.value.file !== 'undefined') {
-    player.src = currentTrack.value.file;
-    player.play();
-    player.addEventListener('ended', () => {
-      isPlaying.value = false;
-    });
+  const audio = audioRef.value;
+  if (audio && audio.src) {
+    audio.play();
   }
 };
 
 const pause = () => {
-  player.pause();
+  const audio = audioRef.value;
+  if (audio) {
+    audio.pause();
+  }
 };
+
 </script>
 
 <style scoped></style>
