@@ -17,7 +17,7 @@
 import globalMixins from "../mixins/globalMixins";
 import musicsMixins from "../mixins/musicsMixins";
 export default {
-  name: "Home",
+  name: "Library",
   mixins: [globalMixins, musicsMixins],
 };
 </script>
