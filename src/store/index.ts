@@ -21,7 +21,7 @@ export default createStore({
   state: (): State => ({
     musics: [
       { index: 0, name: 'I Always Wanna Die (Sometimes)', artist: 'The 1975', album: 'A Brief Inquiry into Online Relationships', file: 'src/assets/musics/always-wanna-die.mp3', cover: 'src/assets/musics/1975.jpeg' },
-      { index: 1, name: 'ฤดู', artist: 'Dept', album: 'Cycle of Love', file: 'src/assets/musics/always-wanna-die.mp3', cover: 'src/assets/musics/sample.jpeg' },
+      { index: 1, name: 'ฤดู', artist: 'Dept', album: 'Cycle of Love', file: 'src/assets/musics/dept.mp3', cover: 'src/assets/musics/sample.jpeg' },
     ],
     bookMarksMusicsIndex: JSON.parse(localStorage.getItem('bookMarks') || '[]'),
     activeMusic: { index: -1, music: {} as Music },
