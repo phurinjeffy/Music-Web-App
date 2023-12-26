@@ -15,6 +15,7 @@ export interface State {
   activeMusic: { index: number; music: Music };
   isPlay: boolean;
   activePlayList: string;
+  isMenu: boolean;
 }
 
 export default createStore({
@@ -27,8 +28,12 @@ export default createStore({
     activeMusic: { index: -1, music: {} as Music },
     isPlay: false,
     activePlayList: 'all',
+    isMenu: true,
   }),
   mutations: {
+    toggleMenu(state: State): void {
+      state.isMenu = !state.isMenu;
+    },
     setActiveMusic(state: State, music: Music): void {
       state.activeMusic = { index: music.index, music };
     },
