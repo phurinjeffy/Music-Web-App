@@ -45,7 +45,6 @@ import { ref, computed, onMounted } from 'vue';
 
 const store = useStore();
 
-const isPlaying = computed(() => store.state.isPlay);
 const isMute = ref(false);
 const volume = ref(100);
 const showVolume = ref(false);
@@ -57,13 +56,6 @@ const currentVolume = computed({
     updatePlayerVolume(value);
   },
 });
-
-const currentTrack = computed(() => store.state.activeMusic.music);
-
-const togglePlay = () => {
-  store.commit('updatePlayStatus');
-  isPlaying.value ? play() : pause();
-};
 
 const toggleVolume = () => {
   isMute.value = !isMute.value;
@@ -78,6 +70,15 @@ const updatePlayerVolume = (value: number) => {
   if (audioRef.value) {
     audioRef.value.volume = value / 100;
   }
+};
+
+const currentTrack = computed(() => store.state.activeMusic.music);
+
+const isPlaying = computed(() => store.state.isPlay);
+
+const togglePlay = () => {
+  store.commit('updatePlayStatus');
+  isPlaying.value ? play() : pause();
 };
 
 onMounted(() => {

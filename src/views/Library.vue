@@ -6,10 +6,12 @@
         @click="selectMusic(music); updateMusicListScroll($event);"
         :ref="checkActiveMusic(music.index) ? 'activeMusic' : ''"
         class="flex flex-row w-full items-center justify-center mx-auto p-3">
+
         <img :src="music.cover" class="w-16 h-16 mr-5" />
         <span class="w-96 text-white">{{ music.name }}</span>
         <span class="w-96 text-zinc-400">{{ music.artist }}</span>
         <span class="w-96 text-zinc-400">{{ music.album }}</span>
+        
       </li>
     </ul>
   </div>
