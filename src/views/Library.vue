@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-6">
     <ul class="flex flex-col justify-center items-start my-12" ref="musicList">
       <li v-for="(music, index) in getMusics" :key="index"
         :class="checkActiveMusic(music.index) ? 'bg-zinc-900' : ''"

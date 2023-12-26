@@ -37,8 +37,8 @@ export default createStore({
     setActiveMusic(state: State, music: Music): void {
       state.activeMusic = { index: music.index, music };
     },
-    updatePlayStatus(state: State, status: boolean): void {
-      state.isPlay = status;
+    updatePlayStatus(state: State): void {
+      state.isPlay = !state.isPlay;
     },
     addBookMarkMusic(state: State, index: number): void {
       state.bookMarksMusicsIndex.push(index);
