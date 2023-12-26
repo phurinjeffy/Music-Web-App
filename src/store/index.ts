@@ -16,6 +16,7 @@ export interface State {
   isPlay: boolean;
   activePlayList: string;
   isMenu: boolean;
+  audioSource: any,
 }
 
 export default createStore({
@@ -29,6 +30,7 @@ export default createStore({
     isPlay: false,
     activePlayList: 'all',
     isMenu: true,
+    audioSource: null,
   }),
   getters: {
     getMusics: (state: State) => state.musics,
@@ -44,6 +46,9 @@ export default createStore({
     },
     updatePlayStatus(state: State): void {
       state.isPlay = !state.isPlay;
+    },
+    setAudioSource(state: State, source: any): void {
+      state.audioSource = source;
     },
   },
 });

@@ -25,7 +25,10 @@ const store = useStore();
 
 const getMusics = store.getters.getMusics;
 
-const setActiveMusic = (music: Music) => store.commit('setActiveMusic', music);
+const setActiveMusic = (music: Music) => {
+  store.commit('setActiveMusic', music);
+  store.commit('setAudioSource', music.file);
+};
 
 const isActiveTrack = (music: Music) => {
   const activeMusic = store.getters.getActiveMusic;

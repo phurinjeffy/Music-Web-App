@@ -87,13 +87,24 @@ onMounted(() => {
   if (audioRef.value) {
     audioRef.value.src = initialMusic.file;
   }
+
+  store.watch(
+    () => store.state.audioSource,
+    (newSource) => {
+      if (audioRef.value) {
+        audioRef.value.src = newSource;
+        audioRef.value.load();
+        isPlaying.value ? play() : pause();
+      }
+    }
+  );
 });
 
 const audioRef = ref<HTMLAudioElement | null>(null);
 
 const play = () => {
   const audio = audioRef.value;
-  if (audio && audio.src) {
+  if (audio) {
     audio.play();
   }
 };
