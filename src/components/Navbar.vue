@@ -29,9 +29,12 @@
 </template>
 
 <script setup lang="ts">
-const toggleMenu = () => {
+import { useStore } from 'vuex';
 
-};
+const store = useStore();
+
+const toggleMenu = () => store.commit('toggleMenu');
+
 </script>
 
 <style scoped>
