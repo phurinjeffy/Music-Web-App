@@ -30,6 +30,11 @@ export default createStore({
     activePlayList: 'all',
     isMenu: true,
   }),
+  getters: {
+    getMusics: (state: State) => state.musics,
+    getActiveMusic: (state: State) => state.activeMusic,
+    getPlayingStatus: (state: State) => state.isPlay,
+  },
   mutations: {
     toggleMenu(state: State): void {
       state.isMenu = !state.isMenu;
@@ -39,17 +44,6 @@ export default createStore({
     },
     updatePlayStatus(state: State): void {
       state.isPlay = !state.isPlay;
-    },
-    addBookMarkMusic(state: State, index: number): void {
-      state.bookMarksMusicsIndex.push(index);
-      localStorage.setItem('bookMarks', JSON.stringify(state.bookMarksMusicsIndex));
-    },
-    removeBookMarkMusic(state: State, index: number): void {
-      state.bookMarksMusicsIndex = state.bookMarksMusicsIndex.filter(item => item !== index);
-      localStorage.setItem('bookMarks', JSON.stringify(state.bookMarksMusicsIndex));
-    },
-    updatePlayList(state: State, playList: string): void {
-      state.activePlayList = playList;
     },
   },
 });
