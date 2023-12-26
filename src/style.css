@@ -7,3 +7,7 @@
 * {
   @apply font-['Roboto']
 }
+
+body {
+  @apply bg-zinc-950
+}
