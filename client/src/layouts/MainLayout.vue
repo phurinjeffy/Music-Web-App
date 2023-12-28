@@ -3,7 +3,7 @@
     <Navbar />
     <Sidebar />
     
-    <main :class="{ 'pl-20': store.state.isMenu }">
+    <main :class="{ 'pl-20': store.state.isMenu }" class="pt-16 w-screen max-h-[calc(100vh-5rem)] bg-zinc-950 text-white overflow-y-auto">
       <router-view />
     </main>
     
@@ -21,8 +21,4 @@ const store = useStore();
 
 </script>
 
-<style scoped>
-main {
-  @apply pt-16 w-screen h-[185vh] bg-zinc-950 text-white
-}
-</style>
+<style scoped></style>
