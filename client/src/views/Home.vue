@@ -17,7 +17,7 @@
 
     <div class="py-1.5"></div>
 
-    <div class="flex items-center overflow-x-scroll">
+    <div class="flex items-center overflow-x-scroll scrollbar-hidden">
       <HomeCard v-for="item in items" :key="item.title" 
         :image="item.image" 
         :title="item.title" 
@@ -90,6 +90,12 @@ const items = [
   { image: "src/assets/musics/sample.jpeg", title: "Hello", subtitle: "World" },
   { image: "src/assets/musics/1975.jpeg", title: "Hello", subtitle: "World" },
   { image: "src/assets/musics/sample.jpeg", title: "Hello", subtitle: "World" },
+  { image: "src/assets/musics/1975.jpeg", title: "Hello", subtitle: "World" },
+  { image: "src/assets/musics/1975.jpeg", title: "Hello", subtitle: "World" },
+  { image: "src/assets/musics/1975.jpeg", title: "Hello", subtitle: "World" },
+  { image: "src/assets/musics/1975.jpeg", title: "Hello", subtitle: "World" },
+  { image: "src/assets/musics/1975.jpeg", title: "Hello", subtitle: "World" },
+  { image: "src/assets/musics/1975.jpeg", title: "Hello", subtitle: "World" },
   { image: "src/assets/musics/1975.jpeg", title: "Hello", subtitle: "World" },
 ];
 </script>

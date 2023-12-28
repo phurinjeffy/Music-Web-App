@@ -1,7 +1,7 @@
 <template>
   <RouterLink to="library">
     <div class="p-4 rounded-md m-2 cursor-pointer bg-zinc-900 hover:bg-zinc-800">
-      <img class="rounded-md w-48 h-48" :src="image"/>
+      <img class="rounded-md min-w-48 min-h-48 w-48 h-48" :src="image"/>
       <div class="text-white pt-4 font-semibold text-lg">
         {{ title }}
       </div>
