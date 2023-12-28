@@ -8,9 +8,9 @@
         <div class="w-[18px] h-[1.1px] bg-white my-[5px]"></div>
       </div>
 
-      <a>
+      <router-link to="/">
         <img src="../assets/youtube_music.png" class="w-28" />
-      </a>
+      </router-link>
 
       <div class="flex w-full min-w-[420px] bg-zinc-800 rounded-lg border-[0.5px] border-gray-500 border-opacity-50">
         <img src="../assets/search.svg" class="w-5 mx-4"/>
@@ -21,9 +21,9 @@
     </div>
 
     <div class="mr-6">
-      <a>
+      <router-link to="/login">
         <img src="../assets/profile.svg" class="w-8" />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
