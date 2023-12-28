@@ -2,11 +2,12 @@
   <div>
     <Navbar />
     <Sidebar />
-    <MusicPlayer />
-
+    
     <main :class="{ 'pl-20': store.state.isMenu }">
       <router-view />
     </main>
+    
+    <MusicPlayer />
   </div>
 </template>
 
@@ -22,6 +23,6 @@ const store = useStore();
 
 <style scoped>
 main {
-  @apply pt-16 w-screen h-screen bg-zinc-950 text-white
+  @apply pt-16 w-screen h-[185vh] bg-zinc-950 text-white
 }
 </style>
